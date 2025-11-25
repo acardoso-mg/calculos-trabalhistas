@@ -41,18 +41,18 @@
           -moz-appearance: textfield;
       }
 
-      /* 🔵 Estilo para fixar a barra azul novamente */
-      .barra-azul-fixa {
+      /* FIXAR A BARRA AZUL NO TOPO */
+      header.bg-primary {
         position: fixed !important;
-        top: 0;
+        top: 0 !important;
         left: 0;
         width: 100%;
-        z-index: 9999;
+        z-index: 9999 !important;
       }
 
-      /* 🔵 Empurra o conteúdo para baixo para não ficar escondido atrás da barra fixa */
-      body.barra-azul-ativa {
-        padding-top: 120px;
+      /* empurrar conteúdo para baixo */
+      body {
+        padding-top: 130px !important;
       }
     </style>
 
@@ -91,7 +91,6 @@
     <!-- Conteúdo principal -->
     <div id="root"></div>
 
-
     <!-- ========================= -->
     <!-- 🔵 BANNER DE RODAPÉ        -->
     <!-- ========================= -->
@@ -108,7 +107,7 @@
     </script>
 
     <!-- ========================= -->
-    <!-- 🔥 SCRIPT PARA REMOVER PLACEHOLDER CINZA -->
+    <!-- 🔥 REMOVER PLACEHOLDER CINZA -->
     <!-- ========================= -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -116,32 +115,4 @@
           const text = (el.innerText || "").toLowerCase();
           if (
             text.includes("publicidade") &&
-            text.includes("espaço reservado") &&
-            text.includes("google adsense")
-          ) {
-            el.remove();
-          }
-        });
-      });
-    </script>
-
-    <!-- ========================= -->
-    <!-- 🔵 SCRIPT PARA FIXAR A BARRA AZUL -->
-    <!-- ========================= -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const headers = document.querySelectorAll("div, header, section");
-
-        headers.forEach(el => {
-          const txt = (el.innerText || "").toLowerCase();
-          
-          if (txt.includes("calculadora trabalhista br")) {
-            el.classList.add("barra-azul-fixa");
-            document.body.classList.add("barra-azul-ativa");
-          }
-        });
-      });
-    </script>
-
-  </body>
-</html>
+            text.includes("espaço re
