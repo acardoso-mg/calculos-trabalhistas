@@ -40,6 +40,20 @@
       input[type=number] {
           -moz-appearance: textfield;
       }
+
+      /* 🔵 Estilo para fixar a barra azul novamente */
+      .barra-azul-fixa {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+      }
+
+      /* 🔵 Empurra o conteúdo para baixo para não ficar escondido atrás da barra fixa */
+      body.barra-azul-ativa {
+        padding-top: 120px;
+      }
     </style>
 
     <link rel="stylesheet" href="/index.css">
@@ -91,6 +105,42 @@
         data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <!-- ========================= -->
+    <!-- 🔥 SCRIPT PARA REMOVER PLACEHOLDER CINZA -->
+    <!-- ========================= -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("div, section, span, p").forEach(el => {
+          const text = (el.innerText || "").toLowerCase();
+          if (
+            text.includes("publicidade") &&
+            text.includes("espaço reservado") &&
+            text.includes("google adsense")
+          ) {
+            el.remove();
+          }
+        });
+      });
+    </script>
+
+    <!-- ========================= -->
+    <!-- 🔵 SCRIPT PARA FIXAR A BARRA AZUL -->
+    <!-- ========================= -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const headers = document.querySelectorAll("div, header, section");
+
+        headers.forEach(el => {
+          const txt = (el.innerText || "").toLowerCase();
+          
+          if (txt.includes("calculadora trabalhista br")) {
+            el.classList.add("barra-azul-fixa");
+            document.body.classList.add("barra-azul-ativa");
+          }
+        });
+      });
     </script>
 
   </body>
