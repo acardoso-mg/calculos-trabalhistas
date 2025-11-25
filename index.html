@@ -1,118 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Trabalhista</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google AdSense (script principal) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5410624033488148"
-     crossorigin="anonymous"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Roboto', 'sans-serif'],
-            },
-            colors: {
-              primary: '#00009C',
-              primaryHover: '#00007C',
-              secondary: '#f3f4f6',
-            }
-          }
-        }
-      }
-    </script>
+  // Aguarda o React renderizar a barra azul
+  const interval = setInterval(() => {
+    const header = [...document.querySelectorAll("header")].find(el =>
+      (el.innerText || "").includes("Calculadora Trabalhista BR")
+    );
 
-    <style>
-      /* Remove arrow/spinners from input type number */
-      input[type=number]::-webkit-inner-spin-button, 
-      input[type=number]::-webkit-outer-spin-button { 
-          -webkit-appearance: none; 
-          margin: 0; 
-      }
-      input[type=number] {
-          -moz-appearance: textfield;
-      }
+    if (header) {
+      clearInterval(interval);
 
-      /* FIXAR A BARRA AZUL NO TOPO */
-      header.bg-primary {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0;
-        width: 100%;
-        z-index: 9999 !important;
-      }
+      // Remove classes que anulam o position fixed
+      header.classList.remove("sticky", "top-0");
 
-      /* empurrar conteúdo para baixo */
-      body {
-        padding-top: 130px !important;
-      }
-    </style>
+      // Aplica estilo FIXO de forma direta
+      Object.assign(header.style, {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        right: "0",
+        zIndex: "99999",
+        width: "100%"
+      });
 
-    <link rel="stylesheet" href="/index.css">
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-        "react/": "https://aistudiocdn.com/react@^19.2.0/",
-        "react": "https://aistudiocdn.com/react@^19.2.0"
-      }
+      // Ajusta o layout para não cobrir conteúdo
+      document.body.style.paddingTop = header.offsetHeight + "px";
     }
-    </script>
+  }, 100);
 
-    <script type="module" crossorigin src="./assets/index-CfrBlSiF.js"></script>
-  </head>
-
-  <body class="bg-gray-50 text-gray-800 font-sans antialiased leading-relaxed text-base">
-
-    <!-- ======================== -->
-    <!-- 🔵 BANNER DE TOPO         -->
-    <!-- ======================== -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5410624033488148"
-        crossorigin="anonymous"></script>
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-5410624033488148"
-        data-ad-slot="4148205556"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
-    <!-- Conteúdo principal -->
-    <div id="root"></div>
-
-    <!-- ========================= -->
-    <!-- 🔵 BANNER DE RODAPÉ        -->
-    <!-- ========================= -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5410624033488148"
-        crossorigin="anonymous"></script>
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-5410624033488148"
-        data-ad-slot="5114529216"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
-    <!-- ========================= -->
-    <!-- 🔥 REMOVER PLACEHOLDER CINZA -->
-    <!-- ========================= -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("div, section, span, p").forEach(el => {
-          const text = (el.innerText || "").toLowerCase();
-          if (
-            text.includes("publicidade") &&
-            text.includes("espaço re
+});
+</script>
