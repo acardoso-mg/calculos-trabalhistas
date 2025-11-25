@@ -93,23 +93,5 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
-    <!-- ========================= -->
-    <!-- 🔥 SCRIPT PARA REMOVER PLACEHOLDER CINZA -->
-    <!-- ========================= -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("div, section, span, p").forEach(el => {
-          const text = (el.innerText || "").toLowerCase();
-          if (
-            text.includes("publicidade") &&
-            text.includes("espaço reservado") &&
-            text.includes("google adsense")
-          ) {
-            el.remove();
-          }
-        });
-      });
-    </script>
-
   </body>
 </html>
