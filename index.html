@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google AdSense (script principal) -->
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5410624033488148"
      crossorigin="anonymous"></script>
 
@@ -29,10 +29,10 @@
               sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
             colors: {
-              primary: '#0F172A', // Slate 900
-              primaryHover: '#1E293B', // Slate 800
-              secondary: '#F8FAFC', // Slate 50
-              accent: '#6366F1', // Indigo 500
+              primary: '#0F172A',
+              primaryHover: '#1E293B',
+              secondary: '#F8FAFC',
+              accent: '#6366F1',
               brand: {
                 50: '#F0F9FF',
                 100: '#E0F2FE',
@@ -61,7 +61,7 @@
     </script>
 
     <style>
-      /* Remove arrow/spinners from input type number */
+      /* Remove arrows de inputs numéricos */
       input[type=number]::-webkit-inner-spin-button, 
       input[type=number]::-webkit-outer-spin-button { 
           -webkit-appearance: none; 
@@ -70,13 +70,12 @@
       input[type=number] {
           -moz-appearance: textfield;
       }
-      
-      /* Smooth scrolling for anchor links */
+
       html {
         scroll-behavior: smooth;
       }
 
-      /* Hide scrollbar for nav but keep functionality */
+      /* Oculta scrollbar */
       .scrollbar-hide::-webkit-scrollbar {
           display: none;
       }
@@ -84,11 +83,37 @@
           -ms-overflow-style: none;
           scrollbar-width: none;
       }
+
+      /* ---------- CORREÇÕES APLICADAS ---------- */
+
+      /* Remove espaço gigante abaixo de PUBLICIDADE */
+      .ad-container, .publicidade, .ads-wrapper {
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      /* Header compatível com iPhone (notch) */
+      header, .site-header {
+        padding-top: env(safe-area-inset-top);
+      }
+
+      /* Barra das calculadoras fixa */
+      .calculadoras-sticky {
+        position: sticky;
+        top: calc(64px + env(safe-area-inset-top));
+        z-index: 999;
+        background: white;
+      }
+
+      /* Evita que o conteúdo fique escondido */
+      main, .main-content {
+        padding-top: 120px;
+      }
     </style>
 
-    <link rel="stylesheet" href="/index.css">
-
-
+    <!-- CORREÇÃO GITHUB PAGES: caminho relativo -->
+    <link rel="stylesheet" href="index.css">
 
     <!-- Dev Environment Script -->
     <script type="importmap">
@@ -100,13 +125,26 @@
       }
     }
     </script>
+
     <script type="module" crossorigin src="./assets/index-Bdy3dpMi.js"></script>
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans antialiased leading-relaxed text-lg">
 
-    <!-- Conteúdo principal -->
+    <!-- ROOT DO REACT -->
     <div id="root"></div>
+
+    <!-- FIX PARA BARRA DAS CALCULADORAS (aplicado via JS) -->
+    <script>
+      // Aguarda o React renderizar
+      const interval = setInterval(() => {
+        const barra = document.querySelector(".w-full.border-b.border-gray-300.bg-white.shadow-sm.scrollbar-hide.flex");
+        if (barra) {
+          barra.classList.add("calculadoras-sticky");
+          clearInterval(interval);
+        }
+      }, 200);
+    </script>
 
   </body>
 </html>
