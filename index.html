@@ -3,10 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Trabalhista</title>
+    <title>Calculadora Trabalhista BR | Rescisão, Férias, FGTS e 13º (Atualizada 2024)</title>
+    <meta name="description" content="Faça cálculos trabalhistas exatos e atualizados: Rescisão CLT, FGTS, Férias, 13º Salário, Horas Extras e Adicional Noturno. Guia completo com legislação e exemplos." />
+    <meta name="keywords" content="calculadora trabalhista, calculo rescisão, calculo exato, clt, fgts, ferias, 13 salario, aviso previo, horas extras, adicional noturno, direitos trabalhistas" />
+    
+    <!-- Performance Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google AdSense (script principal) -->
@@ -18,12 +26,34 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Roboto', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
             colors: {
-              primary: '#00009C',
-              primaryHover: '#00007C',
-              secondary: '#f3f4f6',
+              primary: '#0F172A', // Slate 900
+              primaryHover: '#1E293B', // Slate 800
+              secondary: '#F8FAFC', // Slate 50
+              accent: '#6366F1', // Indigo 500
+              brand: {
+                50: '#F0F9FF',
+                100: '#E0F2FE',
+                500: '#0EA5E9',
+                600: '#0284C7',
+                900: '#0C4A6E',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
             }
           }
         }
@@ -39,6 +69,20 @@
       }
       input[type=number] {
           -moz-appearance: textfield;
+      }
+      
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Hide scrollbar for nav but keep functionality */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
       }
     </style>
 
@@ -56,7 +100,7 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="./assets/index-4XjICB2l.js"></script>
+    <script type="module" crossorigin src="./assets/index-Bdy3dpMi.js"></script>
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans antialiased leading-relaxed text-lg">

@@ -1,0 +1,1 @@
+import{r as t}from"./MoneyInput-DBw-Hv0D.js";const d=(r,o,s)=>{const n=t(r),a=t(n/220),l=t(a*(1+s/100)),c=t(l*o),e=t(c/6);return{hourlyValue:a,extraValue:c,dsr:e,total:t(c+e)}},x=(r,o)=>{const s=t(r),n=t(s/220),a=o*1.142857;return{total:t(a*n*.2),description:`${o}h relógio equivalem a ${a.toFixed(2)}h noturnas.`}};export{x as a,d as c};
